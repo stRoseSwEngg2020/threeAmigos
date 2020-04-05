@@ -2,12 +2,15 @@
     <body>
     <?php
     //database connection added 
-include 'Login_form.php';
-include 'databaseconnect.php';
-
+$dbServerName="localhost";
+$dbusername="root";
+$dbpassword="";
+$dbName="tfits";
+$conn=mysqli_connect($dbServerName,$dbusername,$dbpassword,$dbName);
+ 
 $temperature= isset($_POST['temp']) ? $_POST['temp']:' ';
 $temperature = stripslashes($_POST['temp']);
-$temperature = mysqli_real_escape_string($conn,$username);
+$temperature = mysqli_real_escape_string($conn,$temperature);
 
 $activity= isset($_POST['act']) ? $_POST['act']:' ';
 $activity = stripslashes($_POST['act']);
@@ -16,27 +19,40 @@ $activity = mysqli_real_escape_string($conn,$activity);
 $weather= isset($_POST['weather']) ? $_POST['weather']:' ';
 $weather = stripslashes($_POST['weather']);
 $weather = mysqli_real_escape_string($conn,$weather);
-
-$sql="Select * from wardrobe where userId=1 and season=`$weather` and acticity=`$activity`;";
-    $result = mysqli_query($conn,$sql);
-    $resultCheck=mysqli_num_rows($result);
+echo $weather;
+$sql="Select * from wardrobe WHERE userId=1 and activity='$activity' and Season='$weather';";
+if(!mysqli_query($conn,$sql)){
+  die("Unable to add data.");
+}else{
+  $result = mysqli_query($conn,$sql);
+  $resultCheck=mysqli_num_rows($result);
     if ($resultCheck>0){
-        
-      echo "<table>
+      $result = mysqli_query($conn,$sql);
+    $resultCheck=mysqli_num_rows($result);
+    
+    if ($resultCheck>0){
+      echo "The temperature is about $temperature \n";
+      echo "We reccomend you to wear any of these outfits\n";
+      echo "
+      <table>
       <tr>
       <th> Types Of Clothes</th>
       <th> Size </th>
       <th> Brand </th>";
-      
-      echo"
-      <tr>
-        <td>".$row['clothesType']."</td>
-        <td>".$row["size"]."</td>
-        <td>".$row["brand"]."</td>
-    </tr>";
-      
-      echo "</table>";
+      while ($row=mysqli_fetch_assoc($result)){
+         echo"<tr>
+         <td>".$row['clothesType']."</td>
+         <td>".$row['size']."</td>
+         <td>".$row['Brand']."</td>
+         </tr>";
+         echo "</table>";
+        
     }
+  }
+    }
+  
+}
+    
 mysqli_close($conn);
     ?>
 </body>
