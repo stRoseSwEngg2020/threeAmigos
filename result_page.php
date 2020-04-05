@@ -7,8 +7,8 @@
   </head>
   <body>
     <?php
-    echo "In $location, the temperature is about $temp"
-    echo "We reccomend you to wear $outfit."
+    echo "In $location, the temperature is about $temp";
+    echo "We reccomend you to wear $outfit.";
     ?>
     <button>Accept</button>
     <button>Decline</button>
