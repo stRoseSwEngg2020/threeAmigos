@@ -3,48 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Sign Up Page</title>
-    <link rel="stylesheet" href="style.css">
+    
   </head>
   <body>
+    <form action="weather.php" method="post">
   <p>
     <label>Please enter the predicted temperature for activity(Fahrenheit):  </label>
-    <input type = "text" />
+    <input type = "text"  name ="temp"/>
   </p>
   <p>
     <label>Please choose activity that relates to you:   </label>
-    <select id = "activities" />
-      <option value = "physical activity">Physical</option>
-      <option value = "formal acvtivity">Formal</option>
-      <option value = "athletic activity">Athletic</option>
+    <select name="act">
+        <option value="informal">Informal Activity</option>
+        <option value="formal">Formal Activity </option>
+        <option value="atheletic">Atheletic</option> 
+          </select>
   </p>
   <p>
     <label>Please choose a weather anomlie</label>
-  <div>
-    <input type="checkbox" id ="rain" name="rain"
-          checked>
-    <label for="rain">Rain</label>
-  </div>
+    <select name="weather" >
+      <option value="summer">Summer</option>
+      <option value="winter">Winter</option>
+      <option value="monsoon">Monsoon</option>
+        </select>
+</p>
+<p>
+  <input type="submit" value="Send Data">
+</p>
 
-  <div>
-    <input type="checkbox" id="snow" name="snow">
-    <label for="snow">Snow</label>
-  </div>
-  <div>
-    <input type="checkbox" id="wind" name="wind">
-    <label for="wind">Wind</label>
-  </div>
-
-  <div>
-    <input type="checkbox" id="partly cloudy" name="partly cloudy">
-    <label for="partly cloudy">Partly Cloudy</label>
-  </div>
-  <div>
-    <input type="checkbox" id="sunny" name="sunny">
-    <label for="sunny">Sunny</label>
-  </div>
-  </p>
-
-    <button type="submit">Submit</button>
 
 
     </body>
