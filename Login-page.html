@@ -1,31 +1,19 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Log In Page</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+   </head>
   <body>
+    <form action="Login_form.php" method="post">
     <p>
-      <label>Enter Username: </label>
-      <input type = "text" />
+      Username: <input type="text" name="username">
     </p>
     <p>
-      <label>Enter Password:  </label>
-      <input type = "text" />
+      Password: <input type="text" name="password">
     </p>
-    <button>Submit</button>
-
-
-
-    </body>
-
-
-
-
-
-
-
-
-
+  <p>
+    <input type="submit" value="Send Data">
+  </p>
+</body>
 </html>
