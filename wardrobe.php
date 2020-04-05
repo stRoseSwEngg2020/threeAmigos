@@ -1,4 +1,4 @@
-//created the data base in mysql.
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,19 +16,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully";
+$clothesType= isset($_POST['cType']) ? $_POST['cType']:' ';
+$brand= isset($_POST['brand']) ? $_POST['brand']:' ';
+$size= isset($_POST['size']) ? $_POST['size']:' ';
+$activity= isset($_POST['activity']) ? $_POST['activity']:' ';
+$season= isset($_POST['season']) ? $_POST['season']:' ';
 
-$clothesType=$_POST['cType'];
+$sql="INSERT INTO wardrobe(userId, clothesId, clothesType, Brand, size, activity, Season) VALUES (1,NULL,'{$clothesType}','{$brand}','{$size}','{$activity}','{$season}')";
+if(!mysqli_query($conn,$sql)){
+  die("Unable to add data.");
+}else{
+  echo "The clothes has been added to wardrobe.";
+}
 
-$size=$_POST['size'];
-
-$activity=$_POST['act'];
-
-$season=$_POST['season'];
-
-$sql="INSERT INTO wardrobe(userId, clothesId, clothesType, size, activity, Season) VALUES (1,3,'$clothesType','$size','$activity','$season');";
-mysqli_query($conn,$sql);
-
-
+ mysqli_close($conn);
 ?>
 </body>
 </html>
