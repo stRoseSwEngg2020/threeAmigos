@@ -37,6 +37,9 @@ and password='".md5($password)."'";
  }
     }else{
 ?>
+</body>
+</html>
+
 <div class="form">
 <h1>Log In</h1>
 <form action="" method="post" name="login">
