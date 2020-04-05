@@ -1,42 +1,60 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Registration</title>
-<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
 <?php
+//database connection 
+$dbServerName="localhost";
+$dbusername="root";
+$dbpassword="";
+$dbName="tfits";
+$conn=mysqli_connect($dbServerName,$dbusername,$dbpassword,$dbName);
+
 // If form submitted, insert values into the database.
-if (isset($_REQUEST['username'])){
+$username= isset($_POST['username']) ? $_POST['username']:' ';
         // removes backslashes
- $username = stripslashes($_REQUEST['username']);
+ $username = stripslashes($_POST['username']);
         //escapes special characters in a string
- $username = mysqli_real_escape_string($con,$username);
- $email = stripslashes($_REQUEST['email']);
- $email = mysqli_real_escape_string($con,$email);
- $password = stripslashes($_REQUEST['password']);
- $password = mysqli_real_escape_string($con,$password);
- $trn_date = date("Y-m-d H:i:s");
-        $query = "INSERT into `users` (username, password, email, trn_date)
-VALUES ('$username', '".md5($password)."', '$email', '$trn_date')";
-        $result = mysqli_query($con,$query);
-        if($result){
-            echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
+ $username = mysqli_real_escape_string($conn,$username);
+echo $username;
+$email= isset($_POST['email']) ? $_POST['email']:' ';
+ $email = stripslashes($_POST['email']);
+ echo $email;
+ $email = mysqli_real_escape_string($conn,$email);
+ $password= isset($_POST['password']) ? $_POST['password']:' ';
+ $password = stripslashes($_POST['password']);
+ echo $password;
+ $password = mysqli_real_escape_string($conn,$password);
+ if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql="Select * from userInfo where userName='{$username}';";
+   $result = mysqli_query($conn,$sql);
+   $resultCheck=mysqli_num_rows($result);
+   if ($resultCheck>0){
+        while ($row=mysqli_fetch_assoc($result)){
+                if ($row['userName']==$username){
+                        echo("username exists");
+                break;
+                }
+                elseif ($row['email']==$email){
+                        echo('Email exist');
+                break;
+                }
+    
+     }
+}
+     else{
+        $sql="INSERT INTO userInfo(userId, userName, `password`,email,zipcode) VALUES (NULL,'{$username}','{$password}','{$email}',12084)";
+        if(!mysqli_query($conn,$sql)){
+          die("Unable to add data.");
+        }else{
+          echo "The username added";
         }
-    }else{
-?>
-<div class="form">
-<h1>Registration</h1>
-<form name="registration" action="" method="post">
-<input type="text" name="username" placeholder="Username" required />
-<input type="email" name="email" placeholder="Email" required />
-<input type="password" name="password" placeholder="Password" required />
-<input type="submit" name="submit" value="Register" />
-</form>
-</div>
-<?php } ?>
-</body>
-</html>
+
+     }
+
+
+     
+
+   mysqli_close($conn);
+   ?>
+   </html>
+ 
