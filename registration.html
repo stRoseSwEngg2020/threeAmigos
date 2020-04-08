@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="styles.css">
 <meta charset="utf-8">
 <title>Registration</title>
 </head>
@@ -8,9 +9,15 @@
 <div class="form">
 <h1>Registration</h1>
 <form name="registration" action="registration_form.php" method="post">
-<input name="username" type="text"  required />
-<input name="email" type="email"  required />
-<input name="password" type="password"  required />
+<p>
+  Username:<input name="username" type="text"  required />
+</p>
+<p>
+Email:<input name="email" type="email"  required />
+</p>
+<p>
+Password: <input name="password" type="password"  required />
+</p>
 <input type="submit"  value="Register" />
 </form>
 </div>
