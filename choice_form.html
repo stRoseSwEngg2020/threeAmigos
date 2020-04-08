@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+a {
+    background-color: White;
+  box-shadow: 0 5px 0 black;
+  color: Black;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+a:active {
+  box-shadow: none;
+  top: 5px;
+}
+</style>
 <meta charset="utf-8">
 <title>Login</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <div class="form">
-<h1>Choice</h1>
-<p>Want to add new clothes? <a href='wardrobe.html'>Add Clothes here</a></p>
-<p>See todays outfit?<a href='weather_input.html'>See outfit here</a></p>
+<h1>It's your choice</h1>
+<a href='wardrobe.html'>Add Clothes</a>
+<a href='weather_input.html'>See Available outfits</a>
 </div>
 </body>
 </html>
