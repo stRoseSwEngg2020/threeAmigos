@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="stylesheet" type="text/css" href="styles.css">
   <head>
     <meta charset="utf-8">
 
     <title>WardRobe</title>
   </head>
+  
   <body>
      <?php
      $dbServerName="localhost";
@@ -15,6 +17,8 @@
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }
+     include 'logIn.php';
+     echo $username;
      $sql="Select * from wardrobe;";
     $result = mysqli_query($conn,$sql);
     $resultCheck=mysqli_num_rows($result);

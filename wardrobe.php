@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="styles.css">
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -26,7 +27,7 @@ $sql="INSERT INTO wardrobe(userId, clothesId, clothesType, Brand, size, activity
 if(!mysqli_query($conn,$sql)){
   die("Unable to add data.");
 }else{
-  echo "The clothes has been added to wardrobe.";
+  header("Location: wardrobe_mainpage.php");
 }
 
  mysqli_close($conn);

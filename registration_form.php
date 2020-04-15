@@ -1,4 +1,5 @@
 <html>
+<link rel="stylesheet" type="text/css" href="styles.css">
 <?php
 //database connection 
 $dbServerName="localhost";
@@ -30,12 +31,21 @@ $email= isset($_POST['email']) ? $_POST['email']:' ';
    $resultCheck=mysqli_num_rows($result);
    if ($resultCheck>0){
         while ($row=mysqli_fetch_assoc($result)){
-                if ($row['userName']==$username){
+                if ($row['email']==$email or $row['userName']==$username ){
+                        echo('account exists');
+                        echo("<p> Already registered <a href='LogIn.html'> Log In here </a></p>");
+                break;
+                }
+                else if ($row['userName']==$username){
                         echo("username exists");
+                        echo("<p> Already registered <a href='LogIn.html'> Log In here </a></p>");
+                        echo("<p> Try a diffrent username <a href='registration.html'> Log In here </a></p>");
                 break;
                 }
                 elseif ($row['email']==$email){
                         echo('Email exist');
+                        echo("<p> Already registered <a href='LogIn.html'> Log In here </a></p>");
+                        echo("<p> Try a diffrent email <a href='registration.html'> register here </a></p>");
                 break;
                 }
     
@@ -47,14 +57,12 @@ $email= isset($_POST['email']) ? $_POST['email']:' ';
           die("Unable to add data.");
         }else{
           echo "The username added";
+          header("Location: LogIn.html");
         }
 
      }
-
-
+     mysqli_close($conn);
      
-
-   mysqli_close($conn);
    ?>
    </html>
  

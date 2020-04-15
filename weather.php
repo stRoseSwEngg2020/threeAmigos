@@ -1,4 +1,5 @@
 <html>
+<link rel="stylesheet" type="text/css" href="styles.css">
     <body>
     <?php
     //database connection added 
