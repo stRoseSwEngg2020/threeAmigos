@@ -1,14 +1,17 @@
+<?php
+session_start();
+?>
 <html>
 <link rel="stylesheet" type="text/css" href="styles.css">
     <body>
     <?php
-    //database connection added 
+     
 $dbServerName="localhost";
 $dbusername="root";
 $dbpassword="";
 $dbName="tfits";
 $conn=mysqli_connect($dbServerName,$dbusername,$dbpassword,$dbName);
- 
+$userId=$_SESSION["usernum"];
 $temperature= isset($_POST['temp']) ? $_POST['temp']:' ';
 $temperature = stripslashes($_POST['temp']);
 $temperature = mysqli_real_escape_string($conn,$temperature);
@@ -20,8 +23,8 @@ $activity = mysqli_real_escape_string($conn,$activity);
 $weather= isset($_POST['weather']) ? $_POST['weather']:' ';
 $weather = stripslashes($_POST['weather']);
 $weather = mysqli_real_escape_string($conn,$weather);
-echo $weather;
-$sql="Select * from wardrobe WHERE userId=1 and activity='$activity' and Season='$weather';";
+
+$sql="Select * from wardrobe WHERE userId='$userId' and activity='$activity' and Season='$weather';";
 if(!mysqli_query($conn,$sql)){
   die("Unable to add data.");
 }else{
