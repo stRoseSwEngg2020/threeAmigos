@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <link rel="stylesheet" type="text/css" href="styles.css">
@@ -17,9 +20,9 @@
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }
-     include 'logIn.php';
-     echo $username;
-     $sql="Select * from wardrobe;";
+    
+     $userId=$_SESSION["usernum"];
+     $sql="Select * from wardrobe where userId='$userId';";
     $result = mysqli_query($conn,$sql);
     $resultCheck=mysqli_num_rows($result);
     if ($resultCheck>0){

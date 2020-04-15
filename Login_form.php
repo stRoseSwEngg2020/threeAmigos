@@ -1,3 +1,6 @@
+<?php 
+session_start()
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,10 +34,12 @@ if ($conn->connect_error) {
    if ($resultCheck>0){
         while ($row=mysqli_fetch_assoc($result)){
                 if ($row['userName']==$username and $row['password']==$password){
-                     header("Location: choice_form.html");
+                        $_SESSION["usernum"]=$row['userId'];
+                        header("Location: choice_form.html");
                 }
         }
        }
+       $_SESSION["username"]=$username;
 ?>
  <h3>Username/password is incorrect.</h3>
  <br/>Click here to <a href='registration.html'>Login</a>
