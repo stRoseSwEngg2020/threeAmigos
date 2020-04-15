@@ -5,13 +5,22 @@ session_start();
 <link rel="stylesheet" type="text/css" href="styles.css">
     <body>
     <?php
+<<<<<<< HEAD
      
 $dbServerName="localhost";
+=======
+    //database connection added
+$dbServerName="id13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
+>>>>>>> faca29cd88acc3c60bda56391951edbdc588b11c
 $dbusername="root";
 $dbpassword="";
 $dbName="tfits";
 $conn=mysqli_connect($dbServerName,$dbusername,$dbpassword,$dbName);
+<<<<<<< HEAD
 $userId=$_SESSION["usernum"];
+=======
+
+>>>>>>> faca29cd88acc3c60bda56391951edbdc588b11c
 $temperature= isset($_POST['temp']) ? $_POST['temp']:' ';
 $temperature = stripslashes($_POST['temp']);
 $temperature = mysqli_real_escape_string($conn,$temperature);
@@ -33,7 +42,7 @@ if(!mysqli_query($conn,$sql)){
     if ($resultCheck>0){
       $result = mysqli_query($conn,$sql);
     $resultCheck=mysqli_num_rows($result);
-    
+
     if ($resultCheck>0){
       echo "The temperature is about $temperature \n";
       echo "We reccomend you to wear any of these outfits\n";
@@ -50,13 +59,13 @@ if(!mysqli_query($conn,$sql)){
          <td>".$row['Brand']."</td>
          </tr>";
          echo "</table>";
-        
+
     }
   }
     }
-  
+
 }
-    
+
 mysqli_close($conn);
     ?>
 </body>
