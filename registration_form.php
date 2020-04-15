@@ -14,14 +14,14 @@ $username= isset($_POST['username']) ? $_POST['username']:' ';
  $username = stripslashes($_POST['username']);
         //escapes special characters in a string
  $username = mysqli_real_escape_string($conn,$username);
-echo $username;
+
 $email= isset($_POST['email']) ? $_POST['email']:' ';
  $email = stripslashes($_POST['email']);
- echo $email;
+ 
  $email = mysqli_real_escape_string($conn,$email);
  $password= isset($_POST['password']) ? $_POST['password']:' ';
  $password = stripslashes($_POST['password']);
- echo $password;
+
  $password = mysqli_real_escape_string($conn,$password);
  if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);

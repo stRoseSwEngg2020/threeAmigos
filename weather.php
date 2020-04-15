@@ -5,22 +5,13 @@ session_start();
 <link rel="stylesheet" type="text/css" href="styles.css">
     <body>
     <?php
-<<<<<<< HEAD
      
 $dbServerName="localhost";
-=======
-    //database connection added
-$dbServerName="id13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
->>>>>>> faca29cd88acc3c60bda56391951edbdc588b11c
 $dbusername="root";
 $dbpassword="";
 $dbName="tfits";
 $conn=mysqli_connect($dbServerName,$dbusername,$dbpassword,$dbName);
-<<<<<<< HEAD
 $userId=$_SESSION["usernum"];
-=======
-
->>>>>>> faca29cd88acc3c60bda56391951edbdc588b11c
 $temperature= isset($_POST['temp']) ? $_POST['temp']:' ';
 $temperature = stripslashes($_POST['temp']);
 $temperature = mysqli_real_escape_string($conn,$temperature);

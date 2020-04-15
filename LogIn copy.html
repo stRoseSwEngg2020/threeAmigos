@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="en">
   <head>
     <title>Title</title>
 
@@ -16,26 +15,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
     
-    
-  <link rel="stylesheet" type="text/css" href="styles.css">
-<meta charset="utf-8">
-<title>Registration</title>
-</head>
-<body>
-<div class="form">
-<h1>Registration</h1>
-<form name="registration" action="registration_form.php" method="post">
-<p>
-  Username:<input name="username" type="text"  required />
-</p>
-<p>
-Email:<input name="email" type="email"  required />
-</p>
-<p>
-Password: <input name="password" type="password"  required />
-</p>
-<button type="submit" class="btn btn-success">SIGN UP </button>
-</form>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <body>
+    <h1> T-Fits login Page</h1>
+    <form action="Login_form.php" method="post">
+    <p>
+      Username: <input type="text" name="username" placeholder="Username" required />
+    </p>
+    <p>
+      Password: <input type="password" name="password" placeholder="Password" required/>
+    </p>
+  <p>
+    <button type="submit" class="btn btn-success">LOG IN</button>
+
+  </p>
+  <p>Not registered yet? <a href='registration.html'>Register Here</a></p>
 </div>
+</div>
+
 </body>
 </html>
