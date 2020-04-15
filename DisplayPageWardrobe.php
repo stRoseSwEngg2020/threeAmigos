@@ -7,7 +7,7 @@
   </head>
   <body>
      <?php
-     $dbServerName="localhost";
+     $dbServerName="id13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
      $dbusername="root";
      $dbpassword="";
      $dbName="tfits";

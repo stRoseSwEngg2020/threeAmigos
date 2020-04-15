@@ -1,8 +1,8 @@
 <html>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <?php
-//database connection 
-$dbServerName="localhost";
+//database connection
+$dbServerName="id13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
 $dbusername="root";
 $dbpassword="";
 $dbName="tfits";
@@ -48,7 +48,7 @@ $email= isset($_POST['email']) ? $_POST['email']:' ';
                         echo("<p> Try a diffrent email <a href='registration.html'> register here </a></p>");
                 break;
                 }
-    
+
      }
 }
      else{
@@ -62,7 +62,6 @@ $email= isset($_POST['email']) ? $_POST['email']:' ';
 
      }
      mysqli_close($conn);
-     
+
    ?>
    </html>
- 

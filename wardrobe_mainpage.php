@@ -9,10 +9,10 @@ session_start();
 
     <title>WardRobe</title>
   </head>
-  
+
   <body>
      <?php
-     $dbServerName="localhost";
+     $dbServerName="id13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
      $dbusername="root";
      $dbpassword="";
      $dbName="tfits";
@@ -20,7 +20,7 @@ session_start();
      if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
      }
-    
+
      $userId=$_SESSION["usernum"];
      $sql="Select * from wardrobe where userId='$userId';";
     $result = mysqli_query($conn,$sql);

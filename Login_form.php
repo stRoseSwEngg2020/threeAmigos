@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start()
 ?>
 <!DOCTYPE html>
@@ -10,8 +10,8 @@ session_start()
 <link rel="stylesheet" type="text/css" href="styles.css">
 <body>
 <?php
-//database connection added 
-$dbServerName="localhost";
+//database connection added
+$dbServerName="lid13297166_wp_f211dbb09afa392a20eb201cb42fbbf3";
 $dbusername="root";
 $dbpassword="";
 $dbName="tfits";
@@ -45,4 +45,3 @@ if ($conn->connect_error) {
  <br/>Click here to <a href='registration.html'>Login</a>
 </body>
 </html>
-
